@@ -12,24 +12,33 @@ How to use
 ----------
 
 ```c
+//+------------------------------------------------------------------+
+//|                                                      ProjectName |
+//|                                      Copyright 2012, CompanyName |
+//|                                       http://www.companyname.net |
+//+------------------------------------------------------------------+
 #include <mql4-auth.mqh>
-
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
 void OnStart()
-{
-  // Just in case...
-  if (loginDialogIsOpen()) closeLoginDialog();
+  {
+// Just in case...
+   if(loginDialogIsOpen()) closeLoginDialog();
 
-  // Let's do it!
-  if (auth("ACCOUNT_NUMBER", "PASSWORD", "SERVER IP/HOSTNAME")) {
+// Let's do it!
+   if(auth("ACCOUNT_NUMBER","PASSWORD","SERVER IP/HOSTNAME")) 
+     {
 
-    Print("Hooray, I found the login dialog, inserted credentials, now wait until MT4 connects :)");
+      Print("Hooray, I found the login dialog, inserted credentials, now wait until MT4 connects :)");
 
-  } else {
+        } else {
 
-    Print("Sorry, I could not even find the Login dialog... Is your MT4 older than v880 or something?");
+      Print("Sorry, I could not even find the Login dialog... Is your MT4 older than v880 or something?");
 
+     }
   }
-}
+//+------------------------------------------------------------------+
 ```
 
 Credits
